@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="lizardmask" load_steps=3 format=3 uid="uid://c5le060j28r45"]
+
+[ext_resource type="Script" uid="uid://b21dx1fvhrpmp" path="res://scripts/masks/lizardmask.gd" id="1_dabs5"]
+[ext_resource type="Texture2D" uid="uid://cdakcw87mroxx" path="res://assets/Masks/lizardmask.png" id="2_p3eqa"]
+
+[resource]
+script = ExtResource("1_dabs5")
+texture = ExtResource("2_p3eqa")
+name = ""
+allows_kill_enemies = true

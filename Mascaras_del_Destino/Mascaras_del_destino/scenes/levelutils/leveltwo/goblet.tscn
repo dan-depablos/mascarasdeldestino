@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://urib6n53essc"]
+
+[ext_resource type="Texture2D" uid="uid://7q0q52njiq83" path="res://assets/backaction/goblet/Goblet2.png" id="1_adjkq"]
+[ext_resource type="Texture2D" uid="uid://bhxgat7w4cb6h" path="res://assets/backaction/goblet/unlit.png" id="2_buy70"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec0y0"]
+atlas = ExtResource("1_adjkq")
+region = Rect2(0, 0, 84, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckte4"]
+atlas = ExtResource("1_adjkq")
+region = Rect2(84, 0, 84, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6pov"]
+atlas = ExtResource("1_adjkq")
+region = Rect2(168, 0, 84, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw3iv"]
+atlas = ExtResource("1_adjkq")
+region = Rect2(252, 0, 84, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc5im"]
+atlas = ExtResource("1_adjkq")
+region = Rect2(336, 0, 84, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud2q4"]
+atlas = ExtResource("1_adjkq")
+region = Rect2(420, 0, 84, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbhq8"]
+atlas = ExtResource("1_adjkq")
+region = Rect2(504, 0, 84, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8jh8"]
+atlas = ExtResource("2_buy70")
+region = Rect2(0, 0, 84, 189)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_adjkq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ec0y0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckte4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6pov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nw3iv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc5im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud2q4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbhq8")
+}],
+"loop": true,
+"name": &"lit",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8jh8")
+}],
+"loop": true,
+"name": &"unlit",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+z_index = 1
+position = Vector2(0.875001, -17.2812)
+scale = Vector2(0.21131, 0.21131)
+sprite_frames = SubResource("SpriteFrames_adjkq")
+animation = &"lit"
+autoplay = "lit"

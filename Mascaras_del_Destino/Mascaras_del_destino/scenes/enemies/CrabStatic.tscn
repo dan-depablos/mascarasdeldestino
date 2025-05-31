@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://drc0bgd7j2807"]
+
+[ext_resource type="Script" uid="uid://cc3ly6qpxwdu3" path="res://scripts/enemies/CrabStatic.gd" id="1_3l2yb"]
+[ext_resource type="Texture2D" uid="uid://cesqdgys2554j" path="res://assets/enemies/Crab/Crab Idle.png" id="2_euylv"]
+[ext_resource type="AudioStream" uid="uid://cm08u3klrkyt0" path="res://musicandeffects/General/enemies/simplehit.wav" id="3_2240i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6m6id"]
+size = Vector2(18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbexh"]
+atlas = ExtResource("2_euylv")
+region = Rect2(1, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ti0ph"]
+atlas = ExtResource("2_euylv")
+region = Rect2(27, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c1rn"]
+atlas = ExtResource("2_euylv")
+region = Rect2(53, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7vaf"]
+atlas = ExtResource("2_euylv")
+region = Rect2(79, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2da2"]
+atlas = ExtResource("2_euylv")
+region = Rect2(105, 0, 17, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ojtjq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbexh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ti0ph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c1rn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7vaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2da2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="CrabStatic" type="Node2D"]
+script = ExtResource("1_3l2yb")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_6m6id")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ojtjq")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.200555
+
+[node name="crabhitsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2240i")

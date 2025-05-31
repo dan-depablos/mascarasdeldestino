@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://pbbpvu2ow10i"]
+
+[ext_resource type="Script" uid="uid://cixqsvuknylwy" path="res://scripts/traps/coconut.gd" id="1_il75i"]
+[ext_resource type="Texture2D" uid="uid://7au6s8tyga50" path="res://assets/Traps/Coconut.png" id="2_bbswj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sg2bv"]
+radius = 7.0
+
+[node name="Coconut" type="Area2D"]
+collision_layer = 2147483648
+collision_mask = 2
+monitoring = false
+script = ExtResource("1_il75i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bbswj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_sg2bv")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = false
+target_position = Vector2(0, 64)
+collision_mask = 2
+hit_from_inside = true

@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://w82fsueyxya3"]
+
+[ext_resource type="Texture2D" uid="uid://cin3xcxerooyj" path="res://assets/UI/heart.png" id="1_cxceq"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="Heart1" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_cxceq")
+stretch_mode = 5
+
+[node name="Heart2" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_cxceq")
+stretch_mode = 5
+
+[node name="Heart3" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_cxceq")
+stretch_mode = 5

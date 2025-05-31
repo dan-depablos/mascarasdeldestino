@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dk2i2wh2aklo0"
+path="res://.godot/imported/Island Meet and Greet.ogg-56fc470cd4d012eb47e8a52d2d5064b0.oggvorbisstr"
+
+[deps]
+
+source_file="res://musicandeffects/niveldos/Island Meet and Greet.ogg"
+dest_files=["res://.godot/imported/Island Meet and Greet.ogg-56fc470cd4d012eb47e8a52d2d5064b0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

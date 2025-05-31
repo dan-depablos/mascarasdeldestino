@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SquirrelMask" load_steps=3 format=3 uid="uid://ccbwdyuq3l6ba"]
+
+[ext_resource type="Script" uid="uid://dt3mwyi6l42n7" path="res://scripts/masks/SquirrelMask.gd" id="1_di40d"]
+[ext_resource type="Texture2D" uid="uid://wmege2qqou22" path="res://assets/Masks/MaskSquirrel.png" id="2_hyiuy"]
+
+[resource]
+script = ExtResource("1_di40d")
+texture = ExtResource("2_hyiuy")
+name = ""
+allows_kill_enemies = true

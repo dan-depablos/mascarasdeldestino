@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvmiq81sqy0nb"]
+
+[ext_resource type="Script" uid="uid://bcu04t38iaxo3" path="res://scripts/items/health_pickup.gd" id="1_4kmv3"]
+[ext_resource type="AudioStream" uid="uid://la7bd3qhryt6" path="res://musicandeffects/General/Items/health.wav" id="2_i7hr0"]
+
+[node name="healthpickupbase" type="Area2D"]
+collision_layer = 1073741824
+collision_mask = 2
+script = ExtResource("1_4kmv3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="healthsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_i7hr0")
+volume_db = 9.368

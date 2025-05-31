@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpnw3mn6boav1"]
+
+[ext_resource type="Texture2D" uid="uid://y4stxarl0iwa" path="res://assets/UI/heartbeating/heart1.png" id="1_uagoi"]
+[ext_resource type="Texture2D" uid="uid://cin3xcxerooyj" path="res://assets/UI/heart.png" id="1_xpwr4"]
+[ext_resource type="Texture2D" uid="uid://dd8tm5msp3h2s" path="res://assets/UI/heartbeating/heart2.png" id="2_brkfm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20sfu"]
+atlas = ExtResource("1_uagoi")
+region = Rect2(0, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r4n8"]
+atlas = ExtResource("2_brkfm")
+region = Rect2(0, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bfcn"]
+atlas = ExtResource("1_xpwr4")
+region = Rect2(0, 0, 17, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lix4q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20sfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1r4n8")
+}],
+"loop": true,
+"name": &"beating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bfcn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="containerhearts" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="Heart1" type="TextureRect" parent="containerhearts"]
+custom_minimum_size = Vector2(59.215, 2)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="containerhearts/Heart1"]
+position = Vector2(27, 28)
+scale = Vector2(3.36667, 3.36667)
+sprite_frames = SubResource("SpriteFrames_lix4q")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.262792
+
+[node name="Heart2" type="TextureRect" parent="containerhearts"]
+custom_minimum_size = Vector2(59.215, 2)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="containerhearts/Heart2"]
+position = Vector2(27, 28)
+scale = Vector2(3.36667, 3.36667)
+sprite_frames = SubResource("SpriteFrames_lix4q")
+animation = &"idle"
+
+[node name="Heart4" type="TextureRect" parent="containerhearts"]
+custom_minimum_size = Vector2(59.215, 2)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="containerhearts/Heart4"]
+position = Vector2(27, 28)
+scale = Vector2(3.36667, 3.36667)
+sprite_frames = SubResource("SpriteFrames_lix4q")
+animation = &"idle"

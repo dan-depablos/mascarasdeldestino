@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmqvvdygmn7o2"]
+
+[ext_resource type="Script" uid="uid://bqrlauu6qimpi" path="res://scripts/gui/points.gd" id="1_itsal"]
+[ext_resource type="FontFile" uid="uid://dl33nbvc6p8qq" path="res://fonts/double_pixel-7.ttf" id="2_xrspj"]
+
+[node name="points" type="CanvasLayer"]
+offset = Vector2(900, 50)
+transform = Transform2D(1, 0, 0, 1, 900, 50)
+script = ExtResource("1_itsal")
+
+[node name="showpoints" type="RichTextLabel" parent="."]
+offset_right = 323.0
+offset_bottom = 40.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_xrspj")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "adddddasdddd"
+fit_content = true
+
+[node name="showlifes" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_left = -0.524
+anchor_top = 0.014
+anchor_right = -0.524
+anchor_bottom = 0.014
+offset_left = -44.3519
+offset_top = -21.072
+offset_right = 82.6481
+offset_bottom = 28.928
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_xrspj")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+fit_content = true

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Mask" load_steps=3 format=3 uid="uid://i5goxfvfwsdb"]
+
+[ext_resource type="Script" uid="uid://pa1g5fos771q" path="res://scripts/masks/Mask.gd" id="1_blkhe"]
+[ext_resource type="Texture2D" uid="uid://ly2alrjj23fh" path="res://assets/Masks/Mask Tiki.png" id="2_ofg4d"]
+
+[resource]
+script = ExtResource("1_blkhe")
+texture = ExtResource("2_ofg4d")
+name = "MaskTiki"
+allows_kill_enemies = true

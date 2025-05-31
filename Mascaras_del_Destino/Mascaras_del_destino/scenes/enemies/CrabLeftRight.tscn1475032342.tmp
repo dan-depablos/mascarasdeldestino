@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddo7ytp8x7epj"]
+
+[ext_resource type="Script" uid="uid://bu0ylmcik6se2" path="res://scripts/enemies/crableftright.gd" id="1_j2bvo"]
+[ext_resource type="Texture2D" uid="uid://bxbajrfs0s8o" path="res://assets/enemies/Crab/Moving.png" id="2_5858n"]
+[ext_resource type="AudioStream" uid="uid://cm08u3klrkyt0" path="res://musicandeffects/General/enemies/simplehit.wav" id="3_ngexx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7tre"]
+atlas = ExtResource("2_5858n")
+region = Rect2(2, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngexx"]
+atlas = ExtResource("2_5858n")
+region = Rect2(30, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65wls"]
+atlas = ExtResource("2_5858n")
+region = Rect2(58, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3x6v"]
+atlas = ExtResource("2_5858n")
+region = Rect2(86, 0, 16, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6m23g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7tre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngexx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65wls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3x6v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bc002"]
+size = Vector2(9.9, 8.9)
+
+[node name="CrabLeftRight" type="Node2D"]
+script = ExtResource("1_j2bvo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-7.15256e-07, -0.499999)
+scale = Vector2(1, 0.95)
+sprite_frames = SubResource("SpriteFrames_6m23g")
+autoplay = "default"
+frame_progress = 0.344255
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(-1, 0)
+target_position = Vector2(-21, 0)
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(20, 0)
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 19)
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(1, -1.5)
+scale = Vector2(1.25, 1.25)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-0.95, 0.85)
+shape = SubResource("RectangleShape2D_bc002")
+
+[node name="crableftrighthit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ngexx")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

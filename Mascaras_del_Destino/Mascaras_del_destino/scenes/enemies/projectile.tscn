@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7e21i4f8jc3r"]
+
+[ext_resource type="Script" uid="uid://ba6j8gh5w88k" path="res://scripts/enemies/projectile.gd" id="1_jepd4"]
+[ext_resource type="Texture2D" uid="uid://dqta2lxttuatf" path="res://assets/enemies/Plant/Bullet.png" id="1_x0vpt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0my8e"]
+radius = 4.12311
+
+[node name="Projectile" type="Area2D"]
+z_index = 1
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_jepd4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_x0vpt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource("CircleShape2D_0my8e")

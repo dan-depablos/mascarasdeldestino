@@ -1,0 +1,110 @@
+[gd_scene load_steps=14 format=3 uid="uid://67rnxnoyogk"]
+
+[ext_resource type="Script" uid="uid://dcw6pqofgh6mt" path="res://scripts/enemies/golem.gd" id="1_1aur0"]
+[ext_resource type="Texture2D" uid="uid://ci3hmlb2ajvr3" path="res://assets/enemies/golem/gollux_move_red.png" id="2_1sq0e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqtp6"]
+atlas = ExtResource("2_1sq0e")
+region = Rect2(0, 0, 384, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35ek0"]
+atlas = ExtResource("2_1sq0e")
+region = Rect2(384, 0, 384, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pc3ig"]
+atlas = ExtResource("2_1sq0e")
+region = Rect2(768, 0, 384, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1d3p"]
+atlas = ExtResource("2_1sq0e")
+region = Rect2(1152, 0, 384, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xcid"]
+atlas = ExtResource("2_1sq0e")
+region = Rect2(1536, 0, 384, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh6f1"]
+atlas = ExtResource("2_1sq0e")
+region = Rect2(1920, 0, 384, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ala0"]
+atlas = ExtResource("2_1sq0e")
+region = Rect2(2304, 0, 384, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1563"]
+atlas = ExtResource("2_1sq0e")
+region = Rect2(2688, 0, 384, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3w385"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqtp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35ek0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pc3ig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1d3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xcid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh6f1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ala0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1563")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72wun"]
+size = Vector2(95, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_br26l"]
+size = Vector2(86, 99)
+
+[node name="Golem" type="CharacterBody2D"]
+collision_layer = 64
+collision_mask = 3
+script = ExtResource("1_1aur0")
+
+[node name="GolemAnimatedSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(5.00001, -102)
+scale = Vector2(1.58539, 1.6582)
+sprite_frames = SubResource("SpriteFrames_3w385")
+autoplay = "default"
+frame_progress = 0.993934
+
+[node name="Area2dGolemDamage" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionGolemDamage" type="CollisionShape2D" parent="Area2dGolemDamage"]
+position = Vector2(6.5, -49)
+shape = SubResource("RectangleShape2D_72wun")
+
+[node name="GolemBodyCollision" type="CollisionShape2D" parent="."]
+position = Vector2(7, -49.5)
+shape = SubResource("RectangleShape2D_br26l")
+
+[node name="RayCast2Dright" type="RayCast2D" parent="."]
+position = Vector2(24, -45)
+target_position = Vector2(49, 0)
+collision_mask = 262145
+
+[node name="RayCast2D2left" type="RayCast2D" parent="."]
+position = Vector2(24, -45)
+target_position = Vector2(-92, 0)
+collision_mask = 262145
+
+[connection signal="body_entered" from="Area2dGolemDamage" to="." method="_on_area_2d_golem_damage_body_entered"]

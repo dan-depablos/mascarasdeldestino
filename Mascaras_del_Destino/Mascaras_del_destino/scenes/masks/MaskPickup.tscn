@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjwcfscg5vv5c"]
+
+[ext_resource type="Script" uid="uid://e2vup8ep60o" path="res://scripts/masks/mask_pickup.gd" id="1_r3d4d"]
+[ext_resource type="AudioStream" uid="uid://hfecc4voqm3m" path="res://musicandeffects/General/Items/pickmask.wav" id="2_hy6xk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0yxnm"]
+radius = 6.95493
+
+[node name="MaskPickup" type="Area2D"]
+collision_layer = 268435456
+collision_mask = 2
+script = ExtResource("1_r3d4d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.445, 1.445)
+shape = SubResource("CircleShape2D_0yxnm")
+
+[node name="maskpickupsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_hy6xk")

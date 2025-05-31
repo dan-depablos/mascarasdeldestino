@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddkk4layrg1rd"]
+
+[ext_resource type="Script" uid="uid://c8qxn61dm2mov" path="res://scripts/levelutils/levelone/leverlevelone.gd" id="1_7c5f7"]
+[ext_resource type="Texture2D" uid="uid://bcbgj44ip21cv" path="res://assets/backaction/lever/lever_turned_right.png" id="1_snwtu"]
+[ext_resource type="Texture2D" uid="uid://dlxtl0s64xx7t" path="res://assets/backaction/lever/lever_turned_left.png" id="2_7c5f7"]
+[ext_resource type="AudioStream" uid="uid://d1br6ncid5q00" path="res://musicandeffects/General/background/lever.wav" id="4_mln0t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mln0t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_snwtu")
+}],
+"loop": false,
+"name": &"actioned",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7c5f7")
+}],
+"loop": false,
+"name": &"notaction",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yhis"]
+size = Vector2(12, 11)
+
+[node name="lever" type="Node2D"]
+script = ExtResource("1_7c5f7")
+
+[node name="animatedspritelever" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mln0t")
+animation = &"notaction"
+
+[node name="area2dlever" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="collisionlever" type="CollisionShape2D" parent="area2dlever"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_2yhis")
+
+[node name="leversound" type="AudioStreamPlayer2D" parent="area2dlever"]
+stream = ExtResource("4_mln0t")
+bus = &"SFX"
+
+[connection signal="body_entered" from="area2dlever" to="." method="_on_area_2_dlever_body_entered"]

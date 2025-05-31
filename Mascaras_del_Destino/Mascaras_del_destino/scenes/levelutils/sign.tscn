@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3u3r4tyta4xg"]
+
+[ext_resource type="Script" uid="uid://ds6uy7dxkkemb" path="res://scripts/levelutils/sign.gd" id="1_htflj"]
+[ext_resource type="FontFile" uid="uid://beubivhw6b6pe" path="res://fonts/5squared-pixel.ttf" id="2_wcg5m"]
+[ext_resource type="AudioStream" uid="uid://drmk55wgmbgn7" path="res://musicandeffects/General/background/paperflip.wav" id="3_287ia"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vsp2"]
+size = Vector2(14, 13)
+
+[node name="SignTrigger" type="Area2D"]
+collision_layer = 2
+collision_mask = 536870914
+script = ExtResource("1_htflj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_4vsp2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -104.0
+offset_top = -53.0
+offset_right = 105.0
+offset_bottom = -11.0
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_wcg5m")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Las mascaras te dan poderes. Si quieres salir de aqui [wave amp=30]USALAS[/wave] Esta mascara te permite dañar a los enemigos."
+scroll_active = false
+scroll_following = true
+horizontal_alignment = 1
+
+[node name="audiotext" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_287ia")
+volume_db = 0.2
+bus = &"SFX"

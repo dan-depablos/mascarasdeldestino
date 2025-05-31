@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://cm6t7wd7ixqjg"]
+
+[ext_resource type="Texture2D" uid="uid://bkf715hrn0t54" path="res://assets/effects/FB00_nyknck/Fireball.png" id="1_ggvlq"]
+[ext_resource type="Script" uid="uid://cbh7us5srtdxa" path="res://scripts/effects/Fireball.gd" id="1_hknlv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c8ks"]
+atlas = ExtResource("1_ggvlq")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuukd"]
+atlas = ExtResource("1_ggvlq")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abjwl"]
+atlas = ExtResource("1_ggvlq")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5dhl"]
+atlas = ExtResource("1_ggvlq")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkpf7"]
+atlas = ExtResource("1_ggvlq")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1la2a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7c8ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuukd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abjwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5dhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkpf7")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_koelh"]
+radius = 6.32456
+
+[node name="Fireball" type="Area2D"]
+z_index = 1
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_hknlv")
+speed = 200.0
+lifetime = 0.3
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-6.75, -1.125)
+scale = Vector2(0.679688, 0.679688)
+sprite_frames = SubResource("SpriteFrames_1la2a")
+animation = &"fly"
+autoplay = "fly"
+frame_progress = 0.495733
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -2)
+shape = SubResource("CircleShape2D_koelh")
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MaskFireball" load_steps=4 format=3 uid="uid://bq8g8xn1idxab"]
+
+[ext_resource type="Script" uid="uid://buxunirwm541i" path="res://scripts/masks/MaskFireball.gd" id="1_2c7tf"]
+[ext_resource type="PackedScene" uid="uid://cm6t7wd7ixqjg" path="res://scenes/effects/Fireball.tscn" id="1_imdh4"]
+[ext_resource type="Texture2D" uid="uid://bhrmdmn7rr867" path="res://assets/Masks/Mask demon simplified.png" id="3_phajp"]
+
+[resource]
+script = ExtResource("1_2c7tf")
+fireball_scene = ExtResource("1_imdh4")
+cooldown = 0.5
+texture = ExtResource("3_phajp")
+name = ""
+allows_kill_enemies = false

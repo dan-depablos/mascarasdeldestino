@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://820p0cyn2f4u"]
+
+[ext_resource type="Script" uid="uid://cp81omxttstvr" path="res://scripts/traps/Spike.gd" id="1_s2qpl"]
+[ext_resource type="Texture2D" uid="uid://cxdgbf7o8nst0" path="res://assets/Traps/Woodspikes.png" id="2_wmlhq"]
+
+[node name="Spike" type="Area2D"]
+collision_layer = 2147483648
+collision_mask = 2
+script = ExtResource("1_s2qpl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+texture = ExtResource("2_wmlhq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(5, 3, 8, 10, -8, 10, -6, 3, -4, 3, -3, 4, 0, 9, 2, 3)

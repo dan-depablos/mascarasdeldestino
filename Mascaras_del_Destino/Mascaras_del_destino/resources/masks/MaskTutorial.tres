@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MaskTutorial" load_steps=3 format=3 uid="uid://ciqddw5l6dvnb"]
+
+[ext_resource type="Script" uid="uid://d02kimmoibb6y" path="res://scripts/masks/Mask_tutorial.gd" id="1_7aor3"]
+[ext_resource type="Texture2D" uid="uid://b064xetm1bvv8" path="res://assets/Masks/Tut_mask.png" id="2_qs2m2"]
+
+[resource]
+script = ExtResource("1_7aor3")
+texture = ExtResource("2_qs2m2")
+name = ""
+allows_kill_enemies = true

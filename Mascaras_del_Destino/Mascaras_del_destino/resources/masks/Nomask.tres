@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Nomask" load_steps=2 format=3 uid="uid://dtj6qpqqegms7"]
+
+[ext_resource type="Script" uid="uid://qfkr3vrk5dpl" path="res://scripts/masks/Nomask.gd" id="1_gvwyg"]
+
+[resource]
+script = ExtResource("1_gvwyg")
+name = ""
+allows_kill_enemies = false

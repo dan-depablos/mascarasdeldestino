@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://chy2b2ldpd8wq"]
+
+[ext_resource type="PackedScene" uid="uid://cvmiq81sqy0nb" path="res://scenes/items/healthpickupbase.tscn" id="1_fiehr"]
+[ext_resource type="Texture2D" uid="uid://wf3ibr48opor" path="res://assets/Items/health/Filete.png" id="2_jcjtl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oryrw"]
+atlas = ExtResource("2_jcjtl")
+region = Rect2(2, 0, 23, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghr6p"]
+atlas = ExtResource("2_jcjtl")
+region = Rect2(29, 0, 23, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3rk0"]
+atlas = ExtResource("2_jcjtl")
+region = Rect2(56, 0, 23, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_giolb"]
+animations = [{
+"frames": [{
+"duration": 2.1,
+"texture": SubResource("AtlasTexture_oryrw")
+}, {
+"duration": 1.7,
+"texture": SubResource("AtlasTexture_ghr6p")
+}, {
+"duration": 1.9,
+"texture": SubResource("AtlasTexture_r3rk0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c48i"]
+size = Vector2(20, 14)
+
+[node name="filete" instance=ExtResource("1_fiehr")]
+heal_amount = 3
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(-1, -4.5)
+scale = Vector2(0.978261, 0.78125)
+sprite_frames = SubResource("SpriteFrames_giolb")
+autoplay = "default"
+frame_progress = 0.9595
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_7c48i")
+
+[node name="healthsound" parent="." index="2"]
+volume_db = 16.505

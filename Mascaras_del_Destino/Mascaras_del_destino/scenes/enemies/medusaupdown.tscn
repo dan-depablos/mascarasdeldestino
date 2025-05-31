@@ -1,0 +1,129 @@
+[gd_scene load_steps=18 format=3 uid="uid://bgv0k1fks4yml"]
+
+[ext_resource type="Script" uid="uid://cu2c7jj5vaigf" path="res://scripts/enemies/medusaupdown.gd" id="1_88ckr"]
+[ext_resource type="Texture2D" uid="uid://cjjhnm1b0tux" path="res://assets/enemies/medusa/Jellyfish Sprite Sheet.png" id="1_om2il"]
+[ext_resource type="AudioStream" uid="uid://b2fctim61o1nk" path="res://musicandeffects/General/enemies/plop.wav" id="3_51447"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xph0"]
+atlas = ExtResource("1_om2il")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjgra"]
+atlas = ExtResource("1_om2il")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edylq"]
+atlas = ExtResource("1_om2il")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl7s5"]
+atlas = ExtResource("1_om2il")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67j3h"]
+atlas = ExtResource("1_om2il")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uiq48"]
+atlas = ExtResource("1_om2il")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdrs0"]
+atlas = ExtResource("1_om2il")
+region = Rect2(192, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88ckr"]
+atlas = ExtResource("1_om2il")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51447"]
+atlas = ExtResource("1_om2il")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgqsl"]
+atlas = ExtResource("1_om2il")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbmjp"]
+atlas = ExtResource("1_om2il")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yovyn"]
+atlas = ExtResource("1_om2il")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kodwd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xph0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjgra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edylq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cl7s5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67j3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uiq48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdrs0")
+}],
+"loop": false,
+"name": &"Die",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88ckr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51447")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgqsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbmjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yovyn")
+}],
+"loop": true,
+"name": &"Moving",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_om2il"]
+radius = 8.0
+
+[node name="medusaupdown" type="Node2D"]
+script = ExtResource("1_88ckr")
+
+[node name="medusaanimatedsprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(1.1709, 1.1709)
+sprite_frames = SubResource("SpriteFrames_kodwd")
+animation = &"Moving"
+autoplay = "Moving"
+frame_progress = 0.25389
+
+[node name="medusaarea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="medusiahitbox" type="CollisionShape2D" parent="medusaarea"]
+shape = SubResource("CircleShape2D_om2il")
+
+[node name="plop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_51447")
+volume_db = 0.3
+
+[connection signal="body_entered" from="medusaarea" to="." method="_on_hitbox_body_entered"]
